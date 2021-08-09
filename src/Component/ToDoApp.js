@@ -3,11 +3,25 @@ import {useState} from "react";
 import del from"./images/cross.png";
 import completed from"./images/completed.jfif";
 import "./style.css";
-let Id = 1;
+let Id = localStorage.getItem('Id');
+if(!Id){
+    localStorage.setItem('Id',1);
+    Id = 1;
+}else{
+    Id = parseInt(Id) + 1;
+}
 
-function ToDoApp() {
+
+function ToDoApp(props) {
+    //localStorage.removeItem('todoList');
+    //localStorage.removeItem('Id');
+    let todoList = JSON.parse(localStorage.getItem('todoList'));
+    if(!todoList){
+        todoList = [];
+    }
+    //console.log(todoList);
     
-    const [todos, setTodos] = useState([]);
+    const [todos, setTodos] = useState(todoList);
     const [inpVal, setValue] = useState("");
     return<div className="App">
         <h1 style={{textAlign:'center'}}>ToDos</h1>
@@ -25,6 +39,8 @@ function ToDoApp() {
                 <button onClick={()=>{
                     if(inpVal !== ""){
                         setTodos([ ...todos, {id: Id, task:inpVal, isCompleted : false}]);
+                        localStorage.setItem('todoList', JSON.stringify([ ...todos, {id: Id, task:inpVal, isCompleted : false}]));
+                        localStorage.setItem('Id', Id);
                         Id = Id+1;
                         setValue("");
                     }
@@ -32,6 +48,7 @@ function ToDoApp() {
             </div>
         </div>
         <div className="tasks">
+            {localStorage.setItem('todoList', JSON.stringify(todos))}
             <ToDoList todos= {todos} setTodos = {setTodos}/>
  
         </div>

@@ -14,7 +14,9 @@ function ToDoList(props) {
                 return todo;
             })
             
-        )
+        );
+        
+        
     }
     function remove(id){
         setTodos(
@@ -28,8 +30,11 @@ function ToDoList(props) {
         })
         );
     }
+    
+    
 
     return <div>
+        
         {todos.map((todo)=>{
             return <ToDoItem remove = {remove} strike = {strike} item = {todo}/>
         })}
