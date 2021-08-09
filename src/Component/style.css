@@ -1,0 +1,85 @@
+.App{
+    width:45vw;
+    height:90vh;
+    padding-bottom: 25px;
+    margin:auto;
+    background-color: #ece9e9;
+    overflow-y: scroll;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.input-tasks{
+    display: flex;
+    position:sticky;
+    top:0px;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    margin:10px;
+    background-color: #ece9e9;
+    
+}
+.input-tasks input, button{
+    padding :20px;
+    outline: none; 
+    border-radius: 2px;
+    box-shadow: 2px 2px 5px 2px #b1b0b0;
+    border-style: none;
+    
+}
+.input-tasks button:hover{
+    background-color: rgb(109, 108, 108);
+}
+.input-tasks button:active{
+    background-color: rgb(211, 207, 207);
+}
+.item{
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 2px 2px 5px 2px #b1b0b0;
+    margin:auto;
+    margin-top:15px;
+    padding: 15px;
+    width:70%;
+    font-size: 130%;
+    color:#353434;
+    background-color:white;
+}
+.comp{
+    height:30px;
+    width:30px;
+}
+.del{
+    height:25px;
+    width:25px;
+    margin-left:20px;
+}
+.btns{
+    display: flex;
+}
+.foot{
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom:4vh;
+    left:27.5%;
+    width:45vw;
+    background-color:#ece9e9;
+}
+
+@media screen and (max-width:800px) {
+    .App{
+        width:95vw;
+        height:100vh;
+    }
+    .input-tasks input, button{
+        padding :15px;
+        
+    }
+    .foot{
+        bottom:0%;
+        left:2.5%;
+        width:95vw;
+    
+    }
+    
+}
